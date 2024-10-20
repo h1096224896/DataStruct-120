@@ -1,0 +1,43 @@
+<b>矩阵计算器</b><br>
+<form name="form1" action="https://zh.numberempire.com/matrixcalculator.php" method="post">
+    输入矩阵 A:<br>
+    <textarea type="text" name="matrix1" cols="60" rows="20"></textarea>
+    <table>
+        <tbody>
+            <tr>
+                <td>
+                    <input name="determinant" checked="checked" type="checkbox"> 矩阵的行列式
+                </td>
+                <td>
+                    <input name="transpose" checked="checked" type="checkbox"> 转置矩阵
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <input name="trace" checked="checked" type="checkbox"> 矩阵迹
+                </td>
+                <td>
+                    <input name="rank" checked="checked" type="checkbox"> 矩阵的秩
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <input name="inverse" type="checkbox"> 逆矩阵
+                </td>
+                <td>
+                    <input name="eigenvalues" type="checkbox"> 特征值
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <input name="triangularize" type="checkbox"> 上三角矩阵
+                </td>
+                <td>
+                    <input name="square" type="checkbox"> A<sup>2</sup>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <input value="计算" type="submit">
+    <input name="return" value="1" type="hidden">
+</form>

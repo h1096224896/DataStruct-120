@@ -1,0 +1,5 @@
+---
+triple:          'arm64-apple-darwin'
+binary-path:     "/Users/jairhan/Desktop/C/数据结构基础/6二叉树/build/非递归实现二叉树的先序遍历"
+relocations:     []
+...

@@ -1,0 +1,5 @@
+---
+triple:          'arm64-apple-darwin'
+binary-path:     "/Users/jairhan/Desktop/C/数据结构基础/6二叉树/build/求二叉树的深度"
+relocations:     []
+...

@@ -1,0 +1,11 @@
+{
+    "commentTranslate.hover.enabled": true,
+    "files.associations": {
+        "assert.h": "c",
+        "stdio.h": "c"
+    },
+    "python.analysis.autoImportCompletions": true,
+    "python.analysis.typeCheckingMode": "basic",
+    "commentTranslate.targetLanguage": "zh-CN",
+    "commentTranslate.source": "Bing"
+}

@@ -2,7 +2,8 @@
     "commentTranslate.hover.enabled": true,
     "files.associations": {
         "assert.h": "c",
-        "stdio.h": "c"
+        "stdio.h": "c",
+        "stdbool.h": "c"
     },
     "python.analysis.autoImportCompletions": true,
     "python.analysis.typeCheckingMode": "basic",

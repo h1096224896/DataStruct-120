@@ -74,3 +74,13 @@ void PostOrder(BiTree T) {
     }
 }
 
+
+// 8.求二叉树的深度
+int TreeDepth(BiTree T) {
+    if (T == NULL) {
+        return 0;
+    }
+    int left = TreeDepth(T->lchild);
+    int right = TreeDepth(T->rchild);
+    return left > right ? left + 1 : right + 1;
+}

@@ -9,7 +9,7 @@ typedef struct LNode {
 }*LinkList, LNode;  // 前面是指针型
 
 // 初始化一个带头结点的单链表
-int InitList(LinkList* head) {
+int initList(LinkList* head) {
     *head = (LinkList)malloc(sizeof(LNode));  // 将malloc的结果强制转换为LinkList
     if (*head == NULL) {  // 检查分配是否成功
         return 0;

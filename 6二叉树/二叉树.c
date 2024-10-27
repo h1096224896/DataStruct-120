@@ -84,3 +84,22 @@ int TreeDepth(BiTree T) {
     int right = TreeDepth(T->rchild);
     return left > right ? left + 1 : right + 1;
 }
+
+
+// 9.插入节点
+void InsertNode(BiTree* T, char x) {
+    if (*T == NULL) {
+        *T = (BiTNode*)malloc(sizeof(BiTNode));
+        (*T)->data = x;
+        (*T)->lchild = NULL;
+        (*T)->rchild = NULL;
+    }
+    else {
+        if (x < (*T)->data) {
+            InsertNode(&(*T)->lchild, x);
+        }
+        else if (x > (*T)->data) {
+            InsertNode(&(*T)->rchild, x);
+        }
+    }
+}

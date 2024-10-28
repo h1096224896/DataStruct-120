@@ -1,0 +1,5 @@
+---
+triple:          'arm64-apple-darwin'
+binary-path:     "/Users/jairhan/Desktop/C/数据结构基础/9排序/build/希尔排序"
+relocations:     []
+...

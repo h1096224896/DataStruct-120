@@ -8,6 +8,22 @@ int Fibonacci(int n) {
     return Fibonacci(n - 1) + Fibonacci(n - 2);
 }
 
+// 希尔排序
+// 平均:O(n^1.3) 最好:O(n) 最坏:O(n^2)
+void shellSort(int* arr, int len) {
+    for (int gap = len / 2; gap > 0; gap /= 2) {
+        for (int i = gap; i < len; i++) {
+            int temp = arr[i];  // 保存当前值
+            int j = i - gap;  // 保存当前值的前一个位置
+            while (j >= 0 && arr[j] > temp) {  // 从后往前找插入位置
+                arr[j + gap] = arr[j];
+                j -= gap;
+            }
+            arr[j + gap] = temp;
+        }
+    }
+}
+
 // 折半插入排序
 void insertHalfsortort(int* arr, int len) {
     for (int i = 1; i < len; i++) {

@@ -8,9 +8,9 @@
 void shellSort(int* arr, int len) {
     for (int gap = len / 2; gap > 0; gap /= 2) {
         for (int i = gap; i < len; i++) {
-            int temp = arr[i];
-            int j = i - gap;
-            while (j >= 0 && arr[j] > temp) {
+            int temp = arr[i];  // 保存当前值
+            int j = i - gap;  // 保存当前值的前一个位置
+            while (j >= 0 && arr[j] > temp) {  // 从后往前找插入位置
                 arr[j + gap] = arr[j];
                 j -= gap;
             }
@@ -22,6 +22,11 @@ void shellSort(int* arr, int len) {
 
 
 int main() {
-    system("pause");
+    int arr[] = { 23, 12, 45, 2,2, 67, 34, 89, 12, 34 };
+    int len = sizeof(arr) / sizeof(arr[0]);
+    shellSort(arr, len);
+    for (size_t i = 0; i < len; i++) {
+        printf("%d ", arr[i]);
+    }
     return 0;
 }

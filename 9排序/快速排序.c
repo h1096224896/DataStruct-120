@@ -28,6 +28,7 @@ int partition(int arr[], int low, int high) {
 }
 
 // 快速排序函数
+// 平均:O(nlogn) 最好:O(nlogn) 最坏:O(n^2)
 void quick_sort(int arr[], int low, int high) {
     if (low < high) {
         int pi = partition(arr, low, high);

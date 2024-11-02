@@ -2,50 +2,24 @@
 #include <string.h>
 #include <stdlib.h>
 
-int Fibonacci(int n) {
-    if (n == 0) return 0;
-    if (n == 1) return 1;
-    return Fibonacci(n - 1) + Fibonacci(n - 2);
+void cmpCountSort(int a[], int b[], int n) {
+    int i, j, * count;
+    count = (int*)malloc(sizeof(int) * n);
+    for (i = 0;i < n;i++)
+        count[i] = 0;
+    for (i = 0;i < n - 1;i++)
+        for (j = i + 1;j < n;j++)
+            if (a[i] < a[j]) count[j]++;
+            else count[i]++;
+    for (i = 0;i < n;i++) b[count[i]] = a[i];
+    free(count);
 }
-
-// 希尔排序
-// 平均:O(n^1.3) 最好:O(n) 最坏:O(n^2)
-void shellSort(int* arr, int len) {
-    for (int gap = len / 2; gap > 0; gap /= 2) {
-        for (int i = gap; i < len; i++) {
-            int temp = arr[i];  // 保存当前值
-            int j = i - gap;  // 保存当前值的前一个位置
-            while (j >= 0 && arr[j] > temp) {  // 从后往前找插入位置
-                arr[j + gap] = arr[j];
-                j -= gap;
-            }
-            arr[j + gap] = temp;
-        }
-    }
-}
-
-// 折半插入排序
-void insertHalfsortort(int* arr, int len) {
-    for (int i = 1; i < len; i++) {
-        int temp = arr[i];   // 保存当前值
-        int left = 0, right = i - 1;  // 开头和当前值前一个
-        while (left <= right) {
-            int mid = (left + right) / 2;
-            if (arr[mid] > temp) {
-                right = mid - 1;
-            }
-            else {
-                left = mid + 1;
-            }
-        }
-        for (int j = i - 1; j >= left; j--) {
-            arr[j + 1] = arr[j];
-        }
-        arr[left] = temp;
-    }
-}
-
 int main() {
-    printf("%d\n", Fibonacci(0));
+    int a[] = { 25,-10,25,10,11,19 };
+    int b[6];
+    cmpCountSort(a, b, 6);
+    for (size_t i = 0; i < 6; i++) {
+        printf("%-3d", b[i]);
+    }
     return 0;
 }

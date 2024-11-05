@@ -13,7 +13,7 @@ void PreOrderNonRecursion(BiTree T) {
     int top = -1;
     BiTree p = T;
     printf("先序遍历(非递归)：");
-    while (p || top != -1) {
+    while (p || top != -1) {   // p不为空或者栈不为空
         if (p) {
             printf("%c ", p->data);
             Stack[++top] = p;

@@ -1,25 +1,58 @@
 #include <stdio.h>
-#include <string.h>
 #include <stdlib.h>
+#include <stdbool.h>
 
-void cmpCountSort(int a[], int b[], int n) {
-    int i, j, * count;
-    count = (int*)malloc(sizeof(int) * n);
-    for (i = 0;i < n;i++)
-        count[i] = 0;
-    for (i = 0;i < n - 1;i++)
-        for (j = i + 1;j < n;j++)
-            if (a[i] < a[j]) count[j]++;
-            else count[i]++;
-    for (i = 0;i < n;i++) b[count[i]] = a[i];
-    free(count);
+typedef int ElemType;
+
+typedef struct LNode {
+    ElemType data;
+    struct LNode* next;
+} LNode, * LinkList;
+
+// 创建一个新的节点
+LNode* createNode(ElemType value) {
+    LNode* newNode = (LNode*)malloc(sizeof(LNode));
+    newNode->data = value;
+    newNode->next = NULL;
+    return newNode;
 }
-int main() {
-    int a[] = { 25,-10,25,10,11,19 };
-    int b[6];
-    cmpCountSort(a, b, 6);
-    for (size_t i = 0; i < 6; i++) {
-        printf("%-3d", b[i]);
+
+// 删除绝对值相等的多余元素
+int deleteDuplicateAbs(LinkList* L) {
+    if (L == NULL) return 0;
+    int appear[1000] = { 0 };  // 未出现计为 0,出现计为 1,假设链表内元素绝对值范围在 0-999;
+    LNode* pre = L;
+    LNode* p = L->next;
+}
+
+// 打印链表
+void printList(LinkList head) {
+    LNode* current = head;
+    while (current != NULL) {
+        printf("%d -> ", current->data);
+        current = current->next;
     }
+    printf("NULL\n");
+}
+
+// 示例代码
+int main() {
+    // 创建链表: 1 -> -2 -> 2 -> -3 -> 3 -> -1 -> 1 -> NULL
+    LinkList head = createNode(1);
+    head->next = createNode(-2);
+    head->next->next = createNode(2);
+    head->next->next->next = createNode(-3);
+    head->next->next->next->next = createNode(3);
+    head->next->next->next->next->next = createNode(-1);
+    head->next->next->next->next->next->next = createNode(1);
+
+    printf("原链表:\n");
+    printList(head);
+
+    deleteDuplicateAbs(&head);
+
+    printf("删除绝对值相等的多余元素后的链表:\n");
+    printList(head);
+
     return 0;
 }

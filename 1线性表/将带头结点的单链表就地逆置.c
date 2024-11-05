@@ -18,15 +18,15 @@ int reverseList(LinkList L) {
     return 1;
 }
 
-// int main(int argc, char const* argv[]) {
-//     srand(time(NULL));
-//     LinkList L;
-//     initList(&L);
-//     for (int i = 0; i < 10; i++) {
-//         insertTailNode(L, arc4random() % (10));
-//     }
-//     showLinkList(L);
-//     reverseList(L);
-//     showLinkList(L);
-//     return 0;
-// }
+int main(int argc, char const* argv[]) {
+    srand(time(NULL));
+    LinkList L;
+    initList(&L);
+    for (int i = 0; i < 10; i++) {
+        insertTailNode(L, arc4random() % (10));
+    }
+    showLinkList(L);
+    reverseList(L);
+    showLinkList(L);
+    return 0;
+}

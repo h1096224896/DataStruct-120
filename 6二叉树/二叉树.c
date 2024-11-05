@@ -44,11 +44,6 @@ void Create_Tree(BiTree* T) {
 
 // 5.先序遍历
 void PreOrder(BiTree T) {
-    // static int firstCall = 1;
-    // if (firstCall) {
-    //     printf("先序遍历:");
-    //     firstCall = 0;
-    // }
     if (T) {
         printf("%c ", T->data);
         PreOrder(T->lchild);
@@ -75,17 +70,6 @@ void PostOrder(BiTree T) {
 }
 
 
-// 8.求二叉树的深度
-int TreeDepth(BiTree T) {
-    if (T == NULL) {
-        return 0;
-    }
-    int left = TreeDepth(T->lchild);
-    int right = TreeDepth(T->rchild);
-    return left > right ? left + 1 : right + 1;
-}
-
-
 // 9.插入节点
 void InsertNode(BiTree* T, char x) {
     if (*T == NULL) {
@@ -106,11 +90,32 @@ void InsertNode(BiTree* T, char x) {
 
 // 二叉树的叶子节点个数
 int LeafCount(BiTree T) {
-    if (T == NULL) {
+    if (T == NULL)
         return 0;
-    }
-    if (T->lchild == NULL && T->rchild == NULL) {
+    if (T->lchild == NULL && T->rchild == NULL)
         return 1;
-    }
     return LeafCount(T->lchild) + LeafCount(T->rchild);
 }
+
+// 8.求二叉树的深度
+int TreeDepth(BiTree T) {
+    if (T == NULL)
+        return 0;
+    int left = TreeDepth(T->lchild);
+    int right = TreeDepth(T->rchild);
+    if (left > right)
+        return left + 1;
+    else
+        return right + 1;
+}
+
+
+// int main(int argc, char const* argv[]) {
+//     BiTree T;
+//     Init_Tree(&T);
+//     Create_Tree(&T);
+//     PreOrder(T);
+//     int deep = LeafCount(T);
+//     printf("%d", deep);
+//     return 0;
+// }

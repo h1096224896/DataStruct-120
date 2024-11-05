@@ -18,6 +18,26 @@ int InitDLinkList(DLinkList* L) {
     return 0;
 }
 
+// 删除第 K 个元素
+int deleteIndexOfvalue(DLinkList L, int k) {
+    int cnt = 0;
+    DNode* pre = L;
+    DNode* p = L->next;
+    while (p != NULL && cnt != k) {
+        pre = p;
+        p = p->next;
+        cnt++;
+    }
+    if (p != NULL) {  // 如果 p 不为空,则意味着 k 的位置有效,在链表长度以内
+        pre->next = p->next;
+        p->next->prior = pre;
+        free(p);
+        return 1;
+    }
+    else
+        return 0;
+}
+
 // 判断双链表是否为空
 int Empty(DLinkList L) {
     if (L->next == NULL) {

@@ -8,5 +8,5 @@
     "python.analysis.autoImportCompletions": true,
     "python.analysis.typeCheckingMode": "basic",
     "commentTranslate.targetLanguage": "zh-CN",
-    "commentTranslate.source": "Bing"
+    "commentTranslate.source": "intellsmi.comment-translate-ali.cloud"
 }

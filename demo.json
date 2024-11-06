@@ -1,0 +1,14 @@
+{
+    "id": 1,
+    "name": "John Doe",
+    "author": [
+        {
+            "fistName": "John",
+            "lastName": "Doe"
+        },
+        {
+            "fistName": "Jane",
+            "lastName": "Doe"
+        }
+    ]
+}

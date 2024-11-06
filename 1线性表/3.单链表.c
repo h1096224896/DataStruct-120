@@ -8,6 +8,7 @@ typedef struct LNode {
     struct LNode* next;
 }*LinkList, LNode;  // 前面是指针型
 
+
 // 删除所有值为 X 的结点
 void deleteAllX(LinkList L, int x) {
     LNode* pre = L;  // pre指向当前结点的前驱结点
@@ -217,24 +218,26 @@ int deleteX(LinkList L, int x) {
     return 1;
 }
 
-int main(int argc, char const* argv[]) {
-    LinkList L;
-    initList(&L);
-    insertTailNode(L, 1);
-    insertTailNode(L, 1);
-    insertTailNode(L, 1);
-    insertTailNode(L, 2);
-    insertTailNode(L, 3);
-    insertTailNode(L, 4);
-    insertTailNode(L, 5);
-    insertTailNode(L, 3);
-    insertTailNode(L, 4);
-    insertTailNode(L, 5);
-    showLinkList(L);
-    deleteAllX(L, 1);
-    showLinkList(L);
-    return 0;
-}
+
+
+// int main(int argc, char const* argv[]) {
+//     LinkList L;
+//     initList(&L);
+//     insertTailNode(L, 1);
+//     insertTailNode(L, 1);
+//     insertTailNode(L, 1);
+//     insertTailNode(L, 2);
+//     insertTailNode(L, 3);
+//     insertTailNode(L, 4);
+//     insertTailNode(L, 5);
+//     insertTailNode(L, 3);
+//     insertTailNode(L, 4);
+//     insertTailNode(L, 5);
+//     showLinkList(L);
+//     deleteAllX(L, 1);
+//     showLinkList(L);
+//     return 0;
+// }
 
 
 

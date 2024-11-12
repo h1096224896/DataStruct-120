@@ -3,9 +3,8 @@
 // 统计二叉树中度为且指定值的结点
 int countLeafNodesOfValue(BiTree T, char e) {
     if (T == NULL) return 0;
-    if (T->lchild == NULL && T->rchild == NULL && T->data == e) {
+    if (T->lchild == NULL && T->rchild == NULL && T->data == e)
         return 1;
-    }
     else
         return countLeafNodesOfValue(T->lchild, e) + countLeafNodesOfValue(T->rchild, e);
 }

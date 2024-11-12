@@ -17,7 +17,7 @@ void DeleteAllX(LinkList L, int x) {
 
 int main() {
     LinkList L;
-    InitList(&L);
+    initList(&L);
     insertHeadNode(L, 1);
     insertHeadNode(L, 2);
     insertHeadNode(L, 3);

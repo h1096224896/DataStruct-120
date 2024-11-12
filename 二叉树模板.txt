@@ -1,0 +1,11 @@
+#include "二叉树.c"
+
+
+int main(int argc, char const* argv[]) {
+    BiTree T;
+    Init_Tree(&T);
+    Create_Tree(&T);
+    PreOrder(T); printf("\n");
+    printf("%d", countLeafNodes(T)), printf("\n");
+    return 0;
+}

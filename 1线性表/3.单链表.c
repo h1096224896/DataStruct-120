@@ -150,11 +150,11 @@ void insertTailNode(LinkList L, int e) {
 
 // 头插法
 void insertHeadNode(LinkList L, int e) {
-    LNode* s = (LNode*)malloc(sizeof(LNode));
-    if (s == NULL) return;
-    s->data = e;
-    s->next = L->next;
-    L->next = s;
+    LNode* newNode = (LNode*)malloc(sizeof(LNode));
+    if (newNode == NULL) return;
+    newNode->data = e;
+    newNode->next = L->next;
+    L->next = newNode;
 }
 
 // 函数释放为链表分配的内存
@@ -220,24 +220,24 @@ int deleteX(LinkList L, int x) {
 
 
 
-// int main(int argc, char const* argv[]) {
-//     LinkList L;
-//     initList(&L);
-//     insertTailNode(L, 1);
-//     insertTailNode(L, 1);
-//     insertTailNode(L, 1);
-//     insertTailNode(L, 2);
-//     insertTailNode(L, 3);
-//     insertTailNode(L, 4);
-//     insertTailNode(L, 5);
-//     insertTailNode(L, 3);
-//     insertTailNode(L, 4);
-//     insertTailNode(L, 5);
-//     showLinkList(L);
-//     deleteAllX(L, 1);
-//     showLinkList(L);
-//     return 0;
-// }
+int main(int argc, char const* argv[]) {
+    LinkList L;
+    initList(&L);
+    insertTailNode(L, 1);
+    insertTailNode(L, 1);
+    insertTailNode(L, 1);
+    insertTailNode(L, 2);
+    insertTailNode(L, 3);
+    insertTailNode(L, 4);
+    insertTailNode(L, 5);
+    insertTailNode(L, 3);
+    insertTailNode(L, 4);
+    insertTailNode(L, 5);
+    showLinkList(L);
+    deleteAllX(L, 1);
+    showLinkList(L);
+    return 0;
+}
 
 
 

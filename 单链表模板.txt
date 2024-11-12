@@ -36,51 +36,18 @@ void showLinkList(LinkList L) {
 }
 
 
-void LinkListSort(LinkList L) {
-    if (L == NULL) return;
-    LNode* p = L->next;
-    while (p->next != NULL) {
-        LNode* q = p->next;
-        while (q != NULL) {
-            if (p->data > q->data) {
-                int temp = p->data;
-                p->data = q->data;
-                q->data = temp;
-            }
-            q = q->next;
-        }
-        p = p->next;
-    }
-}
-
-void Sort(LinkList L) {
-    LNode* p = L;
-    while (p->next != NULL) {
-        LNode* q = p->next;
-        while (q != NULL) {
-            if (p->data > q->data) {
-                int temp = p->data;
-                p->data = q->data;
-                q->data = temp;
-            }
-            q = q->next;
-        }
-        p = p->next;
-    }
-}
 
 int main() {
     LinkList L;
     initList(&L);
-    tailInsert(L, 5);
-    tailInsert(L, 4);
     tailInsert(L, 1);
+    tailInsert(L, -2);
     tailInsert(L, 3);
-    tailInsert(L, 7);
-    tailInsert(L, 8);
-    tailInsert(L, 7);
+    tailInsert(L, -3);
+    tailInsert(L, 3);
     showLinkList(L);
-    Sort(L);
+    //  your function here
+
     showLinkList(L);
     return 0;
 }

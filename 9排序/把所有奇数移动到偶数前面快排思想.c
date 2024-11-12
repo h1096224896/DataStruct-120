@@ -15,7 +15,7 @@ void MoveOddToEven(int* arr, int len) {
         while (left < right && arr[right] % 2 == 0) {  // 只要是偶数就继续往前走
             right--;
         }
-        if (left < right) {
+        if (left < right) {    // 交换
             temp = arr[left];
             arr[left] = arr[right];
             arr[right] = temp;

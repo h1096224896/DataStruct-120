@@ -13,7 +13,7 @@ void PreOrderNonRecursion(BiTree T) {
     int top = -1;
     BiTNode* p = T;
     printf("先序遍历(非递归)：");
-    while (p || top != -1) {   // p不为空或者栈不为空
+    while (p != NULL || top != -1) {   // p不为空或者栈不为空
         if (p != NULL) {
             printf("%c ", p->data);
             Stack[++top] = p;
@@ -26,11 +26,13 @@ void PreOrderNonRecursion(BiTree T) {
     }
 }
 
+
 void fun(BiTree T) {
-    BiTree stack[100];
+    BiTNode* stack[100];
     int top = -1;
     BiTNode* p = T;
-    while (p != NULL || top != -1) {  // 
+    printf("先序遍历(非递归)：");
+    while (p != NULL || top != -1) {
         if (p != NULL) {
             printf("%c ", p->data);
             stack[++top] = p;

@@ -176,10 +176,6 @@ int main() {
     ListInsert(&L, 9, 8);
     ListInsert(&L, 10, 10);
     PrintList(L);
-    // start editing here
-    reverse(L, 5, 5);
-
-
     
     PrintList(L);
 }

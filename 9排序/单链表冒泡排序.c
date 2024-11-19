@@ -71,7 +71,8 @@ void bubbleSortLinklist(LinkList* L) {
             }
             p = p->next;
         }
-        if (!flag) return;  // 如果没有发生交换，说明已经有序
+        if (flag == 0)
+            return;  // 如果没有发生交换，说明已经有序
         end = p;  // 更新已排序部分的起始位置
     }
 }

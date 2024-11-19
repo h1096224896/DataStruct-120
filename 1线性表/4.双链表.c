@@ -23,7 +23,7 @@ int deleteIndexOfvalue(DLinkList L, int k) {
     int cnt = 0;
     DNode* pre = L;
     DNode* p = L->next;
-    while (p != NULL && cnt != k) {
+    while (p != NULL && cnt != k) {  // 先找到第K个位置
         pre = p;
         p = p->next;
         cnt++;

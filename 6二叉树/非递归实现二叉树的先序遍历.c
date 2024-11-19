@@ -28,17 +28,17 @@ void PreOrderNonRecursion(BiTree T) {
 
 
 void fun(BiTree T) {
-    BiTNode* stack[100];
+    BiTNode* stack[100];  // 利用一个数组来模拟栈
     int top = -1;
     BiTNode* p = T;
     printf("先序遍历(非递归)：");
     while (p != NULL || top != -1) {
-        if (p != NULL) {
+        if (p != NULL) {   // 如果当前元素不为空,打印并入栈,遍历左子树
             printf("%c ", p->data);
             stack[++top] = p;
             p = p->lchild;
         }
-        else {
+        else {  // 若果当前节点为空,回溯,遍历右子树
             p = stack[top--];
             p = p->rchild;
         }

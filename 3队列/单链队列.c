@@ -22,16 +22,16 @@ void InitQueue(LinkQueue* Q) {
 // 在队尾插入新的元素 e
 int EnQueue(LinkQueue* Q, int e) {
     QNode* newNode = (QNode*)malloc(sizeof(QNode));
-    if (newNode == NULL) return 0;
+    if (newNode == NULL) return 0;  
     newNode->data = e;
-    newNode->next = NULL;
-    if (Q->front == Q->rear) {
+    newNode->next = NULL;  // 构造新节点
+    if (Q->front == Q->rear) {  // 队空,直接在头节点后面插入新节点
         Q->front->next = newNode;
     }
     else {
-        Q->rear->next = newNode;
+        Q->rear->next = newNode;  
     }
-    Q->rear = newNode;
+    Q->rear = newNode;  //调整尾指针继续指向最后一个节点
     return 1;
 }
 

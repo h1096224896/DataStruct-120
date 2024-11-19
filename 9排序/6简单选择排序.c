@@ -13,6 +13,11 @@ void selectSort(int* arr, int len) {
                 arr[j] = temp;
             }
         }
+        // // 输出每次排序的结果
+        // for (size_t i = 0; i < len; i++) {
+        //     printf("%d ", arr[i]);
+        // }
+        // printf("\n");
     }
 }
 
@@ -33,8 +38,9 @@ void selectSort2(int* arr, int len) {
     }
 }
 
+
 int main() {
-    int arr[] = { 23, 12, 45, 2,2, 67, 34, 89, 12, 34 };
+    int arr[] = { 46, 74, 53, 14,26, 38, 86, 65, 27, 34 };
     int len = sizeof(arr) / sizeof(arr[0]);
     selectSort(arr, len);
     for (size_t i = 0; i < len; i++) {

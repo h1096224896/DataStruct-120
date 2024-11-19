@@ -220,24 +220,24 @@ int deleteX(LinkList L, int x) {
 
 
 
-int main(int argc, char const* argv[]) {
-    LinkList L;
-    initList(&L);
-    insertTailNode(L, 1);
-    insertTailNode(L, 1);
-    insertTailNode(L, 1);
-    insertTailNode(L, 2);
-    insertTailNode(L, 3);
-    insertTailNode(L, 4);
-    insertTailNode(L, 5);
-    insertTailNode(L, 3);
-    insertTailNode(L, 4);
-    insertTailNode(L, 5);
-    showLinkList(L);
-    deleteAllX(L, 1);
-    showLinkList(L);
-    return 0;
-}
+// int main(int argc, char const* argv[]) {
+//     LinkList L;
+//     initList(&L);
+//     insertTailNode(L, 1);
+//     insertTailNode(L, 1);
+//     insertTailNode(L, 1);
+//     insertTailNode(L, 2);
+//     insertTailNode(L, 3);
+//     insertTailNode(L, 4);
+//     insertTailNode(L, 5);
+//     insertTailNode(L, 3);
+//     insertTailNode(L, 4);
+//     insertTailNode(L, 5);
+//     showLinkList(L);
+//     deleteAllX(L, 1);
+//     showLinkList(L);
+//     return 0;
+// }
 
 
 

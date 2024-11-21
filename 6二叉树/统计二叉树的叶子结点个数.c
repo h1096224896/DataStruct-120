@@ -11,8 +11,10 @@ int countLeafNodesOfValue(BiTree T, char e) {
 
 // 统计叶子结点的个数
 int countLeafNodes(BiTree T) {
-    if (T == NULL) return 0;
-    if (T->lchild == NULL && T->rchild == NULL) return 1;
+    if (T == NULL)
+        return 0;
+    if (T->lchild == NULL && T->rchild == NULL)
+        return 1;
     return countLeafNodes(T->lchild) + countLeafNodes(T->rchild);
 }
 

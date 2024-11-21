@@ -2,7 +2,7 @@
 
 // 10.判断是否是二叉排序树
 int JudgeBST(BiTree T) {
-    if (T == NULL)  // 当判断到叶子节点时，返回1
+    if (T == NULL)  // 当判断到空节点时，返回1
         return 1;
     if (T->lchild != NULL && T->lchild->data > T->data)  
         return 0;  // 左子树的值大于根节点的值,不是二叉排序树

@@ -4,13 +4,13 @@
 
 // 静态链表
 #define MAXSIZE 100
-struct Node {  // 
+struct QNode {  // 
     int data;  // 数据域
     int next;  // 指针域
 };
 
 // 初始化静态链表
-int InitStaticLinkList(struct Node* space) {
+int InitStaticLinkList(struct QNode* space) {
     for (int i = 0; i < MAXSIZE - 1; i++) {
         space[i].next = i + 1;  // 将所有结点链接在一起
     }
@@ -19,7 +19,7 @@ int InitStaticLinkList(struct Node* space) {
 }
 
 // 插入位置为i的结点
-int InsertStaticLinkList(struct Node* space, int i, int e) {
+int InsertStaticLinkList(struct QNode* space, int i, int e) {
     int j = MAXSIZE - 1;  // j指向最后一个结点
     if (i < 1 || i > MAXSIZE) {
         return -1;
@@ -36,6 +36,6 @@ int InsertStaticLinkList(struct Node* space, int i, int e) {
 }
 
 int main() {
-    struct Node StaticLinkList[MAXSIZE];  // 静态链表
+    struct QNode StaticLinkList[MAXSIZE];  // 静态链表
     return 0;
 }

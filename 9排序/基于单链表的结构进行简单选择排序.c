@@ -2,17 +2,17 @@
 #include <stdlib.h>
 
 // 定义单链表的节点结构
-typedef struct Node {
+typedef struct QNode {
     int data;
-    struct Node* next;
-} Node;
+    struct QNode* next;
+} QNode;
 
 // 对单链表进行简单选择排序
-void selectionSort(Node* head) {
-    Node* pre = head;
+void selectionSort(QNode* head) {
+    QNode* pre = head;
     while (pre != NULL) {
-        Node* min = pre;
-        Node* p = pre->next;
+        QNode* min = pre;
+        QNode* p = pre->next;
         while (p != NULL) {
             if (p->data < min->data) {
                 min = p;
@@ -30,15 +30,15 @@ void selectionSort(Node* head) {
 }
 
 // 创建新节点并插入到链表头部(头插法)
-void push(Node** head_ref, int new_data) {
-    Node* new_node = (Node*)malloc(sizeof(Node));
+void push(QNode** head_ref, int new_data) {
+    QNode* new_node = (QNode*)malloc(sizeof(QNode));
     new_node->data  = new_data;
     new_node->next = (*head_ref);
     (*head_ref)    = new_node;
 }
 
 // 打印链表
-void printList(Node *node) {
+void printList(QNode *node) {
     while (node != NULL) {
         printf("%d ", node->data);
         node = node->next;
@@ -48,7 +48,7 @@ void printList(Node *node) {
 
 // 主函数
 int main() {
-    Node* head = NULL;
+    QNode* head = NULL;
 
     // 添加数据到链表
     push(&head, 5);

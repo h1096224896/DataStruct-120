@@ -49,37 +49,34 @@ void showLinkList(LinkList L) {
 
 
 void getMaxAndSecond(LinkList L) {
-    int sum = 0;
-    LNode* p = L->next; // 假设带头节点
-    while (p != NULL) {
-        sum += p->data;
+    int max = L->next->data;  //  
+    int second = L->next->data; // 将最大值和次大值先设置为第一个元素
+    LNode* p = L->next;
+    while (p != NULL) {  // 选择比较找最大值
+        if (p->data > max)
+            max = p->data;
         p = p->next;
     }
-    printf("-------%d\n", sum);
+    LNode* q = L->next;
+    while (q != NULL) {   // 选择比较找次大值
+        if (q->data > second && q->data < max)
+            second = q->data;
+        q = q->next;
+    }
+    printf("max:%d, second:%d", max, second);
 }
-
-
 
 int main() {
     LinkList L;
     initList(&L);
-    int n = 0;
-    while (1) {
+    for (int i = 1; i <= 10; i++) {
+        printf("请输入第%d个数:", i);
+        int n;
         scanf("%d", &n);
-        if (n != -1) {
-            tailInsert(L, n);
-        }
-        else
-            break;
+        tailInsert(L, n);
     }
-    // tailInsert(L, 1);
-    // tailInsert(L, -2);
-    // tailInsert(L, 3);
-    // tailInsert(L, -3);
-    // tailInsert(L, 3);
     showLinkList(L);
     //  your function here
     getMaxAndSecond(L);
-    showLinkList(L);
     return 0;
 }

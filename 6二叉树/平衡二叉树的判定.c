@@ -3,34 +3,31 @@
 #include <stdlib.h>
 #include "二叉树.c"
 
-// 判断二叉树是否为平衡二叉树
-int isBalanced(BiTree T) {
-    if (T == NULL) {  // 空树是平衡二叉树
-        return 1;
-    }
-    int left = TreeDepth(T->lchild);  // 左子树的深度
-    int right = TreeDepth(T->rchild); // 右子树的深度
-    if (abs(left - right) <= 1) {
-        return isBalanced(T->lchild) && isBalanced(T->rchild);  // 递归判断左右子树
-    }
-    return 0;
-}
 
-// 判断二叉树是否为平衡二叉排序树
-int isBalancedBST(BiTree T) {
-    if (T == NULL) {  // 空树是平衡二叉排序树
+// 8.求二叉树的深度
+// int TreeDepth(BiTree T) {
+//     if (T == NULL)
+//         return 0;
+//     int left = TreeDepth(T->lchild);
+//     int right = TreeDepth(T->rchild);
+//     if (left > right)
+//         return left + 1;
+//     else
+//         return right + 1;
+// }
+
+// 判断二叉树是否为平衡二叉排序树(AVL树)
+int isAVL(BiTree T) {
+    if (T == NULL)  // 空树是平衡二叉树
         return 1;
-    }
-    if (T->lchild != NULL && T->lchild->data > T->data) {
-        return 0;  // 左子树的值大于根节点的值
-    }
-    if (T->rchild != NULL && T->rchild->data < T->data) {
-        return 0;  // 右子树的值小于根节点的值
-    }
-    if (!isBalancedBST(T->lchild) || !isBalancedBST(T->rchild)) {  // 递归判断左右子树
+    if (T->lchild != NULL && T->lchild->data > T->data)  // 左子树的值大于根节点的值
+        return 0;
+    if (T->rchild != NULL && T->rchild->data < T->data)  // 右子树的值小于根节点的值
+        return 0;
+    if (abs(TreeDepth(T->lchild) - TreeDepth(T->rchild)) > 1) {  // 左右子树的深度差大于1
         return 0;
     }
-    return 1;
+    return isAVL(T->lchild) && isAVL(T->rchild);  // 递归判断左右子树
 }
 
 
@@ -38,7 +35,7 @@ int main() {
     BiTree T;
     Init_Tree(&T);
     Create_Tree(&T);
-    if (isBalanced(T)) {
+    if (isAVL(T)) {
         printf("该二叉树是平衡二叉树\n");
     }
     else {

@@ -1,28 +1,38 @@
 #include <stdio.h>
-#include <string.h>
 #include <stdlib.h>
 
-void fun(int* arr, int len, int n) {
-    for (int i = 0; i < n; i++) {
-        int temp = arr[0];
-        int j = 0;
-        for (j = 0; j < len - 1; j++) {
-            arr[j] = arr[j + 1];
-        }
-        arr[j] = temp;
+typedef struct QNode {
+    int data;
+    struct QNode* lchild, * rchild;
+} BiTree;
+
+// 辅助函数：计算二叉树深度并同时判断是否为平衡二叉树
+int isAVLHelper(BiTree* T, int* depth) {
+    if (T == NULL) {
+        *depth = 0; // 空树深度为0
+        return 1;   // 空树是平衡二叉树
     }
+    int leftDepth = 0, rightDepth = 0;
+    // 判断左子树是否是AVL树
+    if (!isAVLHelper(T->lchild, &leftDepth))
+        return 0;
+    // 判断右子树是否是AVL树
+    if (!isAVLHelper(T->rchild, &rightDepth))
+        return 0;
+    // 检查是否满足平衡条件
+    if (abs(leftDepth - rightDepth) > 1)
+        return 0;
+    // 更新当前树的深度
+    *depth = (leftDepth > rightDepth ? leftDepth : rightDepth) + 1;
+    // 检查二叉排序树的条件
+    if ((T->lchild && T->lchild->data > T->data) ||
+        (T->rchild && T->rchild->data < T->data))
+        return 0;
+    return 1; // 满足AVL条件
 }
 
-
-
-
-int main() {
-    int arr[] = { 1, 2, 3, 4, 5 };
-    fun(arr, 5, 4);
-    for (size_t i = 0; i < 5; i++)
-    {
-        printf("%-3d", arr[i]);
-    }
-    
-    return 0;
+// 主函数
+int isAVL(BiTree* T) {
+    int depth = 0;
+    return isAVLHelper(T, &depth);
 }

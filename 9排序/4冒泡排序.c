@@ -32,7 +32,6 @@ void bubbleSort2(int* arr, int len) {
         }
         if (flag == 0)  // 若未交换,则有序,直接退出
             break;
-
     }
 
 }

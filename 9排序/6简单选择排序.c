@@ -39,6 +39,7 @@ void selectSort2(int* arr, int len) {
 }
 
 
+
 int main() {
     int arr[] = { 46, 74, 53, 14,26, 38, 86, 65, 27, 34 };
     int len = sizeof(arr) / sizeof(arr[0]);

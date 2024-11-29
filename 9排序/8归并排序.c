@@ -2,6 +2,7 @@
 #include <string.h>
 #include <stdlib.h>
 
+
 void merge(int arr1[], int len1, int arr2[], int len2, int arr3[]) {
     int i = 0, j = 0, k = 0;
     while (i < len1 && j < len2) {

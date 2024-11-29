@@ -1,0 +1,5 @@
+---
+triple:          'arm64-apple-darwin'
+binary-path:     "/Users/jairhan/Desktop/C/数据结构基础/2栈/build/利用栈将网址反转"
+relocations:     []
+...

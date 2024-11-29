@@ -69,7 +69,7 @@ int del_min(SqList* L, int* value) {
     return 1;
 }
 
-bool reverseSqList(SqList& L, int start, int end) {
+bool reverseSqList(SqList* L, int start, int end) {
     int temp;
     while (start < end) {
         temp = L.data[start];

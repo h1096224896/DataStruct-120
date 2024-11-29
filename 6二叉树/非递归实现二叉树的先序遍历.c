@@ -12,12 +12,12 @@ void PreOrderNonRecursion(BiTree T) {
     BiTree Stack[100];
     int top = -1;
     BiTNode* p = T;
-    printf("先序遍历(非递归)：");
+    printf("先序遍历(非递归):");
     while (p != NULL || top != -1) {   // p不为空或者栈不为空
         if (p != NULL) {
             printf("%c ", p->data);
-            Stack[++top] = p;
-            p = p->lchild;
+            Stack[++top] = p;  // 入栈
+            p = p->lchild;  // 遍历左子树
         }
         else {
             p = Stack[top--]; // 出栈

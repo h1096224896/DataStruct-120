@@ -60,26 +60,7 @@ void DestroyStack(SqStack* S) {
     S->top = -1;  // 栈顶指针置为-1
 }
 
-// 检查表达式中的括号是否匹配
-int checkParentheses(char* expression) {
-    SqStack S;
-    InitStack(&S);
-    for (int i = 0; i < strlen(expression); i++) {
-        char ch = expression[i];  // 逐个读取表达式中的字符
-        if (ch == '(') {
-            // 左括号入栈
-            if (!Push(&S, ch))
-                return 0; // 栈溢出
-        }
-        else if (ch == ')') {
-            // 右括号需要匹配栈顶的左括号
-            char top;
-            if (!Pop(&S, &top))
-                return 0; // 匹配失败
-        }
-    }
-    return StackEmpty(S); // 栈为空表示匹配成功，否则匹配失败
-}
+
 
 int main() {
     char expression[100];

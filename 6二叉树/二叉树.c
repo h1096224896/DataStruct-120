@@ -69,7 +69,6 @@ void PostOrder(BiTree T) {
     }
 }
 
-
 // 9.插入节点
 void InsertNode(BiTree* T, char x) {
     if (*T == NULL) {

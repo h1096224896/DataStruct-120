@@ -28,6 +28,36 @@ void mergeLinkList(LinkList A, LinkList B) {
     }
 }
 
+// 设计算法将递增有序顺序表 A 、B  中的元素合并成一个递増有序顺序表 C, 并返回新链表。
+LinkList mergeLinkList2(LinkList A, LinkList B) {
+    LinkList C;
+    initList(&C);
+    LNode* p = A->next;
+    LNode* q = B->next;
+    LNode* r = C;
+    while (p != NULL && q != NULL) {
+        if (p->data < q->data) {
+            r->next = p;
+            p = p->next;
+        }
+        else {
+            r->next = q;
+            q = q->next;
+        }
+        r = r->next;
+    }
+    while (p != NULL) {  // 如果A链表还有剩余
+        r->next = p;
+        p = p->next;
+        r = r->next;
+    }
+    while (q != NULL) {  // 如果B链表还有剩余
+        r->next = q;
+        q = q->next;
+        r = r->next;
+    }
+    return C;
+}
 
 
 int main(int argc, char const* argv[]) {
@@ -46,7 +76,7 @@ int main(int argc, char const* argv[]) {
     insertTailNode(L2, 6);
     showLinkList(L2);
 
-    mergeLinkList(L1, L2);
-    showLinkList(L1);
+    LinkList L3 = mergeLinkList2(L1, L2);
+    showLinkList(L3);
     return 0;
 }

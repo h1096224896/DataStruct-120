@@ -7,7 +7,7 @@
 // 平均:O(n^2) 最好(正序):O(n) 最坏(逆序):O(n^2)
 void insert_sort(int* arr, int len) {
     for (int i = 1; i < len; i++) {
-        int temp = arr[i];   // 保存当前值
+        int temp = arr[i];   // 保存当前值,防止向后移动时被覆盖
         while (i > 0 && arr[i - 1] > temp) {  // 从后往前查找插入位置
             arr[i] = arr[i - 1];  // 前一个往后移
             i--;

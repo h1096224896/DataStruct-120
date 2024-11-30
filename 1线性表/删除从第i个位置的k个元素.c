@@ -9,6 +9,7 @@ typedef struct {
 } SqList;
 
 
+// 从第i个位置开始删除k个元素
 void delete(SqList* L, int i, int k) {
     if (L == NULL) return;  // 顺序表为空
     for (int count = 0; count < k; count++) {  // 外层循环控制删除个数.

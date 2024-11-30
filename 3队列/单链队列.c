@@ -19,18 +19,19 @@ void InitQueue(LinkQueue* Q) {
     Q->front->next = NULL;
 }
 
-// 在队尾插入新的元素 e
+// 入队
+// 先构造一个新节点，然后判断队列是否为空，若为空，则直接在头节点后插入新节点，否则在尾节点后插入新节点
 int EnQueue(LinkQueue* Q, int e) {
     QNode* newNode = (QNode*)malloc(sizeof(QNode));
-    if (newNode == NULL) return 0;  
+    if (newNode == NULL)
+        return 0;
     newNode->data = e;
     newNode->next = NULL;  // 构造新节点
-    if (Q->front == Q->rear) {  // 队空,直接在头节点后面插入新节点
+
+    if (Q->front == Q->rear) // 队空,直接在头节点后面插入新节点
         Q->front->next = newNode;
-    }
-    else {
-        Q->rear->next = newNode;  
-    }
+    else
+        Q->rear->next = newNode;
     Q->rear = newNode;  //调整尾指针继续指向最后一个节点
     return 1;
 }
@@ -65,15 +66,10 @@ void PrintQueue(LinkQueue* Q) {
 int main() {
     LinkQueue Q;
     InitQueue(&Q);
-    QueueEmpty(&Q) ? printf("队列为空\n") : printf("队列不为空\n");
-
     EnQueue(&Q, 1);
-    QueueEmpty(&Q) ? printf("队列为空\n") : printf("队列不为空\n");
-    DeQueue(&Q, 0);
-    QueueEmpty(&Q) ? printf("队列为空\n") : printf("队列不为空\n");
+    EnQueue(&Q, 2);
+    EnQueue(&Q, 3);
 
-
-    PrintQueue(&Q); // 输出队列内容
-
+    PrintQueue(&Q);
     return 0;
 }

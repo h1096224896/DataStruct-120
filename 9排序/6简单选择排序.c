@@ -13,11 +13,6 @@ void selectSort(int* arr, int len) {
                 arr[j] = temp;
             }
         }
-        // // 输出每次排序的结果
-        // for (size_t i = 0; i < len; i++) {
-        //     printf("%d ", arr[i]);
-        // }
-        // printf("\n");
     }
 }
 

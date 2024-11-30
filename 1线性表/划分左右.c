@@ -2,21 +2,21 @@
 #include <string.h>
 #include <stdlib.h>
 
+// 函数定义: 调整数组，使左边是小于等于基准的数，右边是大于等于基准的数
 void fun(int* arr, int base, int len) {
     int low = 0;
     int high = len - 1;
-    int temp = arr[0];
     while (low < high) {
         while (arr[high] >= base && low < high)
             high--;
-        if (low < high)
-            arr[low++] = arr[high];
         while (arr[low] <= base && low < high)
             low++;
-        if (low < high)
-            arr[high--] = arr[low];
+        if (low < high) {
+            int temp = arr[low];
+            arr[low] = arr[high];
+            arr[high] = temp;
+        }
     }
-    arr[low] = temp;
 }
 
 int main() {

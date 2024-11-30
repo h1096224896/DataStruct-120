@@ -87,14 +87,7 @@ void InsertNode(BiTree* T, char x) {
     }
 }
 
-// 二叉树的叶子节点个数
-int LeafCount(BiTree T) {
-    if (T == NULL)
-        return 0;
-    if (T->lchild == NULL && T->rchild == NULL)
-        return 1;
-    return LeafCount(T->lchild) + LeafCount(T->rchild);
-}
+
 
 // 8.求二叉树的深度
 int TreeDepth(BiTree T) {

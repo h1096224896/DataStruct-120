@@ -35,36 +35,31 @@ void showLinkList(LinkList L) {
     printf("\n");
 }
 
-// 已知单链表中各结点的元素值为整型且递增有序，设计一个函数删除链表中所有大于mink 且小于 maxk 的元素，并释放被删结点的存储空间。链表头指针和 mink、maxk 值作为参数传入
-void delete(LinkList L, int min, int max) {
-    LNode* p = L->next;  // 默认带头结点
-    LNode* pre = L;     // 前驱结点
-    while (p != NULL) { 
-        if (p->data > min && p->data < max) {
-            LNode* temp = p;
-            pre->next = p->next;
-            p = p->next;
-            free(temp);
+// 统计指定值x的个数
+int count(LinkList L, ElemType x) {
+    LNode* p = L->next;
+    int cnt = 0;
+    while (p != NULL) {
+        if (p->data == x) {
+            cnt++;
         }
-        else {
-            pre = p;
-            p = p->next;
-        }
+        p = p->next;
     }
+    return cnt;
 }
 
 int main() {
     LinkList L;
     initList(&L);
     tailInsert(L, 1);
-    tailInsert(L, 2);
+    tailInsert(L, -2);
     tailInsert(L, 3);
-    tailInsert(L, 4);
-    tailInsert(L, 5);
-    tailInsert(L, 6);
-    tailInsert(L, 7);
+    tailInsert(L, -3);
+    tailInsert(L, 3);
     showLinkList(L);
-    delete(L, 2, 5);
+    //  your function here
+    int x = 3;
+    printf("The number of %d is %d\n", x, count(L, x));
     showLinkList(L);
     return 0;
 }

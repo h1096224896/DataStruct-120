@@ -7,7 +7,7 @@
 void insertHalfsortort(int* arr, int len) {
     for (int i = 1; i < len; i++) {
         int temp = arr[i];  // 保存当前值
-        int low = 0, high = i - 1;  
+        int low = 0, high = i - 1;
         while (low <= high) {  // 找插入位置
             int mid = (low + high) / 2;
             if (temp > arr[mid]) {

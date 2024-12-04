@@ -1,0 +1,5 @@
+---
+triple:          'arm64-apple-darwin'
+binary-path:     "/Users/jairhan/Desktop/C/数据结构基础/3队列/build/把数组arr元素逆序插入到循环队列中"
+relocations:     []
+...

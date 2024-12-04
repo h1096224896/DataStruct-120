@@ -35,22 +35,30 @@ void showLinkList(LinkList L) {
     printf("\n");
 }
 
-void fun(LinkList L, int x) {
+int fun(LinkList L, int e) {
     if (L == NULL)
-        return;
+        return 0;
     LNode* p = L->next;
     LNode* pre = L;
+    int cnt = 0;
     while (p != NULL) {
-        if (p->data == x) {
+        if (p->data == e) {
             pre->next = p->next;
             free(p);
             p = pre->next;
+            cnt++;
+            // LNode* tmp = p;
+            // pre->next = p->next;
+            // p = p->next;
+            // free(tmp);
+            // cnt++;
         }
         else {
             pre = p;
             p = p->next;
         }
     }
+    return cnt;
 }
 
 
@@ -65,7 +73,7 @@ int main() {
     tailInsert(L, 4);
     showLinkList(L);
     //  your function here
-    fun(L, 3);
+    printf("%d\n", fun(L, 4));
     showLinkList(L);
     return 0;
 }

@@ -15,12 +15,23 @@ void insert_sort(int* arr, int len) {
         arr[i] = temp;
     }
 }
+void fun(int* arr, int len) {
+    for (size_t i = 1; i < len; i++) {
+        int temp = arr[i];
+        while (i > 0 && arr[i - 1] > temp) {
+            arr[i] = arr[i - 1];
+            i--;
+        }
+        arr[i] = temp;
+    }
+}
+
 
 
 int main() {
     int arr[] = { 23, 12, 45, 2,2, 67, 34, 89, 12, 34 };
     int len = sizeof(arr) / sizeof(arr[0]);
-    insert_sort(arr, len);
+    fun(arr, len);
     for (size_t i = 0; i < len; i++) {
         printf("%d ", arr[i]);
     }

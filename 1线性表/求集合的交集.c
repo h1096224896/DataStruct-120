@@ -53,6 +53,29 @@ LinkList findCommonElements(LinkList L1, LinkList L2) {
     return L3;
 }
 
+LinkList fun(LinkList L1, LinkList L2) {
+    LinkList L3;
+    initList(&L3);
+    LNode* p = L1->next;
+    LNode* q = L2->next;
+    LNode* r = L3;
+    while (p != NULL && q != NULL) {
+        if (p->data == q->data) {
+            r->next = p;
+            p = p->next;
+            q = q->next;
+            r = r->next;
+        }
+        else if (p->data < q->data) {
+            p = p->next;
+        }
+        else
+            q = q->next;
+    }
+    r->next = NULL;
+    return L3;
+}
+
 int main() {
     LinkList L1;
     initList(&L1);
@@ -66,8 +89,8 @@ int main() {
     for (int i = 0; i < sizeof(arr2) / sizeof(arr2[0]); i++) {
         tailInsert(L2, arr2[i]);
     }
-    LinkList L3 = findCommonElements(L1, L2);
+    LinkList L3 = fun(L1, L2);
     showLinkList(L3);
-    
+
     return 0;
 }

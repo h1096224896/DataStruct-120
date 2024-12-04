@@ -8,11 +8,7 @@ void insertNew(LinkList L, int x) {
     LNode* p = L;
     LNode* newElem = (LNode*)malloc(sizeof(LNode));
     newElem->data = x;
-    if (L == NULL || L->data > x) {  // 处理列表为空或应该在开头插入新元素的情况
-        newElem->next = L->next;
-        L->next = newElem;
-        return;
-    }
+
     while (p->next != NULL && p->next->data < x) {  // 找到第一个大于x的结点
         p = p->next;
     }
@@ -29,7 +25,7 @@ int main(int argc, char const* argv[]) {
     insertTailNode(L, 7);
     insertTailNode(L, 9);
     showLinkList(L);
-    insertNew(L, 0);
+    insertNew(L, -1);
     showLinkList(L);
     return 0;
 }

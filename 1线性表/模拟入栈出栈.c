@@ -35,30 +35,47 @@ void showLinkList(LinkList L) {
     printf("\n");
 }
 
-void fun(LinkList L, int x) {
-    LNode* p = L;
-    while (p->next != NULL && p->next->data < x) {  // 找到第一个比x大的节点
+// 入栈相当于尾插
+void Push(LinkList S, int x) {
+    LNode* p = S;
+    while (p->next != NULL) {
         p = p->next;
     }
-    LNode* newNode = (LNode*)malloc(sizeof(LNode));  
+    LNode* newNode = (LNode*)malloc(sizeof(LNode));
     newNode->data = x;
     newNode->next = p->next;
     p->next = newNode;
 }
 
+// 出栈相当于删除最后一个元素
+void Pop(LinkList S, int* x) {
+    LNode* p = S->next;
+    LNode* pre = S;
+    if (p == NULL) {
+        printf("栈已经为空。\n");
+        return;
+    }
+    while (p->next != NULL) {
+        pre = p;
+        p = p->next;
+    }
+    *x = p->data;
+    pre->next = NULL;
+    free(p);
+}
 
 int main() {
     LinkList L;
     initList(&L);
-    fun(L, 7);
-    fun(L, 1);
-    fun(L, 9);
-    fun(L, 3);
-    fun(L, 5);
-
+    tailInsert(L, 1);
+    tailInsert(L, -2);
+    tailInsert(L, 3);
+    tailInsert(L, -3);
+    tailInsert(L, 3);
     showLinkList(L);
     //  your function here
 
     showLinkList(L);
     return 0;
 }
+

@@ -43,7 +43,7 @@ void fun(LinkList L, int m) {
     newNode->data = 1;
     newNode->next = NULL;
     int pos = 1;
-    while (p != NULL && pos < m) {
+    while (p != NULL && pos < m) {  // 找到第m个节点
         p = p->next;
         pos++;
     }

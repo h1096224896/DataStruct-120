@@ -35,30 +35,38 @@ void showLinkList(LinkList L) {
     printf("\n");
 }
 
-void fun(LinkList L, int x) {
+int fun(LinkList L, int value) {
     LNode* p = L;
-    while (p->next != NULL && p->next->data < x) {  // 找到第一个比x大的节点
+    while (p->next != NULL && p->next->data < value)  // 找到第一个大于value的节点
         p = p->next;
+    int cnt = 0;  // 计数器
+    LNode* pre = p;
+    p = p->next;
+    while (p != NULL) {
+        LNode* temp = p;
+        pre->next = p->next;
+        p = p->next;
+        free(temp);
+        cnt++;
     }
-    LNode* newNode = (LNode*)malloc(sizeof(LNode));  
-    newNode->data = x;
-    newNode->next = p->next;
-    p->next = newNode;
+    return cnt;
 }
-
 
 int main() {
     LinkList L;
     initList(&L);
-    fun(L, 7);
-    fun(L, 1);
-    fun(L, 9);
-    fun(L, 3);
-    fun(L, 5);
-
+    tailInsert(L, 1);
+    tailInsert(L, 3);
+    tailInsert(L, 5);
+    tailInsert(L, 7);
+    tailInsert(L, 9);
+    tailInsert(L, 11);
+    tailInsert(L, 13);
     showLinkList(L);
     //  your function here
-
-    showLinkList(L);
+    int cnt = fun(L, 12);
+    printf("%d", cnt);
+    // showLinkList(L);
     return 0;
 }
+

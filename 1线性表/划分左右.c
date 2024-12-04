@@ -7,11 +7,11 @@ void fun(int* arr, int base, int len) {
     int low = 0;
     int high = len - 1;
     while (low < high) {
-        while (arr[high] >= base && low < high)
+        while (arr[high] >= base && low < high)  // 从右向左找到第一个小于基准的数
             high--;
-        while (arr[low] <= base && low < high)
+        while (arr[low] <= base && low < high)  // 从左向右找到第一个大于基准的数
             low++;
-        if (low < high) {
+        if (low < high) {  // 将两个不符合条件的数交换
             int temp = arr[low];
             arr[low] = arr[high];
             arr[high] = temp;

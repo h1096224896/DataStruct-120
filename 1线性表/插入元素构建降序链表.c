@@ -38,7 +38,7 @@ void showLinkList(LinkList L) {
 
 void insertDescending(LinkList L, int data) {
     LNode* p = L;
-    while (p->next != NULL && p->next->data > data) {
+    while (p->next != NULL && p->next->data > data) {  // 找到第一个小于等于data的结点
         p = p->next;
     }
     LNode* newNode = (LNode*)malloc(sizeof(LNode));

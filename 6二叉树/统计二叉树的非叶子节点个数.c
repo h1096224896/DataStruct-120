@@ -21,6 +21,7 @@ int countLeafNodes(BiTree T) {
     return countLeafNodes(T->lchild) + countLeafNodes(T->rchild);
 }
 
+// 统计二叉树的结点个数
 int countNode(BiTree T) {
     if (T == NULL)   // 递归结束条件
         return 0;

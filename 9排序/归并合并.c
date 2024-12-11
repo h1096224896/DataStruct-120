@@ -6,19 +6,15 @@
 void merge(int arr1[], int len1, int arr2[], int len2, int arr3[]) {
     int i = 0, j = 0, k = 0;
     while (i < len1 && j < len2) {
-        if (arr1[i] < arr2[j]) {
+        if (arr1[i] < arr2[j])
             arr3[k++] = arr1[i++];
-        }
-        else {
+        else
             arr3[k++] = arr2[j++];
-        }
     }
-    while (i < len1) {
+    while (i < len1)
         arr3[k++] = arr1[i++];
-    }
-    while (j < len2) {
+    while (j < len2)
         arr3[k++] = arr2[j++];
-    }
 }
 
 // 在一个数组中数据存储在下标 1~m+n里 ,前 m 个有序,后 n 个有序,编写算法使其整体有序

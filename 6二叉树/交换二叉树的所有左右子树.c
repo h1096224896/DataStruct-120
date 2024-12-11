@@ -1,6 +1,7 @@
 #include "二叉树.c"
 
-// 交换左右子树
+
+// 递归交换左右子树
 void swapSubTree(BiTree T) {
     if (T) {
         BiTNode* temp = T->lchild;

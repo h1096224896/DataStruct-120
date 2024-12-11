@@ -35,24 +35,23 @@ void showLinkList(LinkList L) {
     printf("\n");
 }
 
-void fun(LinkList L, int m) {
+void fun(LinkList L, int m, int x) {
     if (L == NULL)
         return;
     LNode* p = L->next;
-    LNode* newNode = (LNode*)malloc(sizeof(LNode));
-    newNode->data = 1;
-    newNode->next = NULL;
-    int pos = 1;
-    while (p != NULL && pos < m) {  // 找到第m个节点
+    int cnt = 1; // 计数器
+    while (p != NULL && cnt < m) {
         p = p->next;
-        pos++;
+        cnt++;
     }
-    if (p != NULL) {  // 范围在m以内
+    if (p != NULL) {
+        LNode* newNode = (LNode*)malloc(sizeof(LNode));
+        newNode->data = x;
         newNode->next = p->next;
         p->next = newNode;
     }
-    else {  // m越界
-        printf("m超过链表长度");
+    else {
+        printf("m越界\n");
         return;
     }
 }
@@ -68,7 +67,7 @@ int main() {
     tailInsert(L, 3);
     showLinkList(L);
     //  your function here
-
+    fun(L, 10, 10);
     showLinkList(L);
     return 0;
 }

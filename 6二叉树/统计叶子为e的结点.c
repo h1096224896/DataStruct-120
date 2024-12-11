@@ -1,8 +1,10 @@
 #include "二叉树.c"
 
 int countLeaf(BiTree T, int e) {
-    if (T == NULL) return 0;
-    if (T->lchild == NULL && T->rchild == NULL && T->data == e) return 1;
+    if (T == NULL)
+        return 0;
+    if (T->lchild == NULL && T->rchild == NULL && T->data == e)
+        return 1;
     else
         return countLeaf(T->lchild, e) + countLeaf(T->rchild, e);
 }

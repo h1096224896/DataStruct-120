@@ -7,13 +7,11 @@ void fun(int* arr, int len) {
     int low = 0;
     int high = len - 1;
     while (low < high) {
-        while (low < high && arr[high] >= pivot) {
+        while (low < high && arr[high] > pivot)
             high--;
-        }
         arr[low] = arr[high];
-        while (low < high && arr[low] <= pivot) {
+        while (low < high && arr[low] < pivot)
             low++;
-        }
         arr[high] = arr[low];
     }
     arr[low] = pivot;
@@ -22,16 +20,17 @@ void fun(int* arr, int len) {
 
 
 int main() {
-    int arr[10];
-    for (size_t i = 0; i < 10; i++) {
+    #define len 5
+    int arr[len];
+    for (size_t i = 0; i < len; i++) {
         arr[i] = arc4random() % 100;
     }
-    for (size_t i = 0; i < 10; i++) {
+    for (size_t i = 0; i < len; i++) {
         printf("%-3d", arr[i]);
     }
     printf("\n");
-    fun(arr, 10);
-    for (size_t i = 0; i < 10; i++) {
+    fun(arr, len);
+    for (size_t i = 0; i < len; i++) {
         printf("%-3d", arr[i]);
     }
     return 0;

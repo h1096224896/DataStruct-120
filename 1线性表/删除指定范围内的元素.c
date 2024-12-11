@@ -40,11 +40,14 @@ void delete(LinkList L, int min, int max) {
     LNode* p = L->next;  // 默认带头结点
     LNode* pre = L;     // 前驱结点
     while (p != NULL) { 
-        if (p->data > min && p->data < max) {
-            LNode* temp = p;
+        if (p->data > min && p->data < max) {  // 如果p结点的值在min和max之间
+            // LNode* temp = p;
+            // pre->next = p->next;
+            // p = p->next;
+            // free(temp);
             pre->next = p->next;
-            p = p->next;
-            free(temp);
+            free(p);
+            p = pre->next;
         }
         else {
             pre = p;

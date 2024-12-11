@@ -60,16 +60,16 @@ void bubbleSortLinklist(LinkList* L) {
     if (L == NULL || L->next == NULL) return;  // 链表为空或者只有一个元素
     LNode* end = NULL;  // end指针表示已排序部分的起始位置
     while (L->next != end) {  // 外层循环控制循环趟数
-        LNode* p = L->next;
-        int flag = 0;
+        LNode* p = L->next;   
+        int flag = 0;  // 交换标志
         while (p->next != end) {  // 内层循环控制每趟的比较次数
             if (p->data > p->next->data) {
                 int temp = p->data;
                 p->data = p->next->data;
                 p->next->data = temp;
-                flag = 1;
+                flag = 1;  // 发生交换
             }
-            p = p->next;
+            p = p->next;  // 移动到下一个节点
         }
         if (flag == 0)
             return;  // 如果没有发生交换，说明已经有序

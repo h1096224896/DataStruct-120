@@ -81,14 +81,12 @@ int main() {
     initList(&L1);
     LinkList L2;
     initList(&L2);
-    int arr1[] = { 1,3,5,7,9 };
-    int arr2[] = { 3,9 };
-    for (int i = 0; i < sizeof(arr1) / sizeof(arr1[0]); i++) {
+    int arr1[] = { 1,3,5,7,9,11,13,15,17,19 };
+    int arr2[] = { 3,9,13 };
+    for (int i = 0; i < sizeof(arr1) / sizeof(arr1[0]); i++)
         tailInsert(L1, arr1[i]);
-    }
-    for (int i = 0; i < sizeof(arr2) / sizeof(arr2[0]); i++) {
+    for (int i = 0; i < sizeof(arr2) / sizeof(arr2[0]); i++)
         tailInsert(L2, arr2[i]);
-    }
     LinkList L3 = fun(L1, L2);
     showLinkList(L3);
 

@@ -3,9 +3,14 @@
 int maxDeep(BiTree T) {
     if (T == NULL)
         return 0;
-    int leftDeep = maxDeep(T->lchild);
-    int rightDeep = maxDeep(T->rchild);
-    return (leftDeep > rightDeep ? leftDeep : rightDeep) + 1;
+    else {
+        int leftDeep = maxDeep(T->lchild);  // 左子树的深度
+        int rightDeep = maxDeep(T->rchild);  // 右子树的深度
+        if (leftDeep >= rightDeep)  // 返回左子树和右子树中较大的深度
+            return leftDeep + 1; 
+        else
+            return rightDeep + 1;
+    }
 }
 
 int main(int argc, char const* argv[]) {

@@ -4,10 +4,10 @@ void PreOrderNonRecursion(BiTree T, int k) {
     BiTree Stack[100];
     int top = -1;
     BiTree p = T;
-    int cnt = 0;
+    int cnt = 0;  // 计数器
     printf("先序遍历(非递归)：");
     while (p || top != -1) {   // p不为空或者栈不为空
-        if (p) {
+        if (p != NULL) {  // 节点不为空
             cnt++;
             if (cnt == k) {
                 printf("%c ", p->data);

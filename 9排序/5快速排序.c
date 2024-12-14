@@ -12,11 +12,10 @@ void swap(int* a, int* b) {
 // 分区函数
 int partition(int arr[], int low, int high) {
     // 随机选择枢轴
-    int pivotIndex = low + rand() % (high - low + 1);
+    int pivotIndex = low + arc4random() % (high - low + 1);
     int pivot = arr[pivotIndex];  // 选择枢轴
     swap(&arr[pivotIndex], &arr[high]);  // 将枢轴移到末尾
     int i = low - 1;
-
     for (int j = low; j < high; j++) {
         if (arr[j] < pivot) {
             i++;
@@ -31,7 +30,7 @@ int partition(int arr[], int low, int high) {
 // 平均:O(nlogn) 最好:O(nlogn) 最坏:O(n^2)
 void quick_sort(int arr[], int low, int high) {  // low:起始位置 high:结束位置
     if (low < high) {
-        int pi = partition(arr, low, high);
+        int pi = partition(arr, low, high);  // 
         quick_sort(arr, low, pi - 1);
         quick_sort(arr, pi + 1, high);
     }

@@ -11,7 +11,7 @@ void fun(int* arr, int base, int len) {
             high--;
         while (arr[low] <= base && low < high)  // 从左向右找到第一个大于基准的数
             low++;
-        if (low < high) {  // 将两个不符合条件的数交换
+        if (low < high) {  // 交换两个数
             int temp = arr[low];
             arr[low] = arr[high];
             arr[high] = temp;
@@ -22,7 +22,7 @@ void fun(int* arr, int base, int len) {
 int main() {
     int arr[10];
     for (int i = 0; i < 10; i++) {
-        scanf("%d", arr + i);
+        arr[i] = arc4random() % 100;
     }
     for (int i = 0; i < 10; i++) {
         printf("%-3d", *(arr + i));

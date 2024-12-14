@@ -16,7 +16,20 @@
 //         return right + 1;
 // }
 
+// 判断二叉树是否为平衡(只是让树平衡,没有大小之间的关系)
+// 判断左右子树的深度差是否小于等于1
+int isBalanced(BiTree T) {
+    if (T == NULL) // 空树是平衡二叉树
+        return 1;
+    int leftDepth = TreeDepth(T->lchild);  // 左子树的深度
+    int rightDepth = TreeDepth(T->rchild); // 右子树的深度
+    if (abs(leftDepth - rightDepth) > 1)
+        return 0;
+    return isBalanced(T->lchild) && isBalanced(T->rchild);  // 递归判断左右子树
+}
+
 // 判断二叉树是否为平衡二叉排序树(AVL树)
+// 平衡二叉树：左右子树的深度差不超过1
 int isAVL(BiTree T) {
     if (T == NULL)  // 空树是平衡二叉树
         return 1;
@@ -24,9 +37,8 @@ int isAVL(BiTree T) {
         return 0;
     if (T->rchild != NULL && T->rchild->data < T->data)  // 右子树的值小于根节点的值
         return 0;
-    if (abs(TreeDepth(T->lchild) - TreeDepth(T->rchild)) > 1) {  // 左右子树的深度差大于1
+    if (abs(TreeDepth(T->lchild) - TreeDepth(T->rchild)) > 1)  // 左右子树的深度差大于1
         return 0;
-    }
     return isAVL(T->lchild) && isAVL(T->rchild);  // 递归判断左右子树
 }
 

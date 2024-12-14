@@ -4,28 +4,18 @@
 void fun(BiTree T) {
     if (T) {
         fun(T->lchild);
-        printf("%-3c", T->data);
+        if ((T->lchild == NULL) != (T->rchild == NULL))  // 只有一个孩子
+            printf("%d ", T->data);
         fun(T->rchild);
     }
 }
 
-void fun2(BiTree T) {
-    if (T) {
-        fun2(T->lchild);
-        if ((T->lchild == NULL && T->rchild != NULL) || (T->lchild != NULL && T->rchild == NULL)) {
-            printf("%-3c", T->data);
-        }
-        fun2(T->rchild);
-    }
-}
-
-
-
-
-int main(int argc, char const* argv[]) {
-    BiTree T;
-    Init_Tree(&T);
-    Create_Tree(&T);
-    fun2(T); printf("\n");
+int main() {
+    BiTree T = NULL;
+    int a[] = { 20,15,10,25 };
+    int len = sizeof(a) / sizeof(a[0]);
+    for (int i = 0; i < len; i++)
+        InsertNode(&T, a[i]);
+    fun(T);
     return 0;
 }

@@ -1,27 +1,20 @@
 #include "二叉树.c"
 
-
-// 设计一个递归的算法，把一棵二叉排序树T中的元素按由小到大的顺序输出
-// 相当于中序遍历
-void fun(BiTree T) {
+// 从小到大输出二叉排序树(先访问左子树 再访问根节点 再访问右子树)
+void InOrderTraverse(BiTree T) {
     if (T) {
-        fun(T->lchild);
-        printf("%c ", T->data);
-        fun(T->rchild);
+        InOrderTraverse(T->lchild);  // 先访问右子树
+        printf("%d ", T->data);  // 访问根节点
+        InOrderTraverse(T->rchild);  // 再访问左子树
     }
 }
 
-// 设计一个递归算法，把任意的一颗二叉树T中的元素按由小到大的顺序输出
-// 相当于小到大的顺序输出二叉树的所有元素
-void fun2(BiTree T) {
-    
-}
-
-int main(int argc, char const* argv[]) {
-    BiTree T;
-    Init_Tree(&T);
-    Create_Tree(&T);
-    PreOrder(T); printf("\n");
-    printf("%d", countLeafNodes(T)), printf("\n");
+int main() {
+    BiTree T = NULL;
+    int a[] = { 20,15,10,18,25 };
+    for (int i = 0; i < 5; i++) {
+        InsertNode(&T, a[i]);
+    }
+    InOrderTraverse(T);
     return 0;
 }

@@ -9,9 +9,8 @@ void insertNew(LinkList L, int x) {
     LNode* newElem = (LNode*)malloc(sizeof(LNode));
     newElem->data = x;
 
-    while (p->next != NULL && p->next->data < x) {  // 找到第一个大于x的结点
+    while (p->next != NULL && p->next->data < x)  // 找到第一个大于x的结点
         p = p->next;
-    }
     newElem->next = p->next;
     p->next = newElem;
 }

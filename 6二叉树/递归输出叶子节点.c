@@ -1,22 +1,21 @@
 #include "二叉树.c"
 
 
-
-void printLeaf(BiTree T) {
-    if (T == NULL)
-        return;
-    if (T->lchild == NULL && T->rchild == NULL) {
-        printf("%c", T->data);
+// 利用二叉树的遍历算法，输出叶子节点
+void fun(BiTree T) {
+    if (T) {
+        if (T->lchild == NULL && T->rchild == NULL)
+            printf("%d ", T->data);
+        fun(T->lchild);
+        fun(T->rchild);
     }
-    printLeaf(T->lchild);
-    printLeaf(T->rchild);
 }
 
-int main(int argc, char const* argv[]) {
-    BiTree T;
-    Init_Tree(&T);
-    Create_Tree(&T);
-    PreOrder(T); printf("\n");
-    printLeaf(T);
+int main() {
+    BiTree T = NULL;
+    int a[] = { 20,15,10,18,25 };
+    for (int i = 0; i < 5; i++)
+        InsertNode(&T, a[i]);
+    fun(T);
     return 0;
 }

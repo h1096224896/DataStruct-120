@@ -4,7 +4,6 @@
 void mergeLinkList(LinkList A, LinkList B) {
     LNode* p = A->next;
     LNode* q = B->next;
-
     while (p != NULL && q != NULL) {
         if (p->data < q->data) {
             A->next = p;

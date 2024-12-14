@@ -53,6 +53,7 @@ LinkList findCommonElements(LinkList L1, LinkList L2) {
     return L3;
 }
 
+// 思路: 两个链表分别指向两个集合的头结点，然后比较两个链表的值，如果相等则将该值插入到新链表中，否则继续比较
 LinkList fun(LinkList L1, LinkList L2) {
     LinkList L3;
     initList(&L3);
@@ -60,19 +61,18 @@ LinkList fun(LinkList L1, LinkList L2) {
     LNode* q = L2->next;
     LNode* r = L3;
     while (p != NULL && q != NULL) {
-        if (p->data == q->data) {
+        if (p->data == q->data) {  // 如果两个值相等, 则插入到新链表中
             r->next = p;
             p = p->next;
             q = q->next;
             r = r->next;
         }
-        else if (p->data < q->data) {
+        else if (p->data < q->data)  // 如果p的值小于q的值, 则p指针后移
             p = p->next;
-        }
         else
-            q = q->next;
+            q = q->next;  // 否则q指针后移
     }
-    r->next = NULL;
+    r->next = NULL;  // 将新链表的尾指针置空
     return L3;
 }
 

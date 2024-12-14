@@ -1,30 +1,33 @@
-class TreeNode:
-    def __init__(self, value=0, left=None, right=None):
-        self.value = value
-        self.left = left
-        self.right = right
+class LinkList:
+    def __init__(self):
+        self.head = None
+
+    # 尾插法
+    def add(self, data):
+        if not self.head:
+            self.head = Node(data)
+        else:
+            current = self.head
+            while current.next:
+                current = current.next
+            current.next = Node(data)
+
+    def display(self):
+        current = self.head
+        while current:
+            print(current.data, end=" ")
+            current = current.next
 
 
-def inorder(node):
-    if node is None:
-        return
-    # 递归访问左子树
-    inorder(node.left)
-    # 输出当前节点的值
-    print(node.value, end=" ")
-    # 递归访问右子树
-    inorder(node.right)
+class Node:
+    def __init__(self, data):
+        self.data = data
+        self.next: "Node" | None = None
 
 
-# 示例：构造一个二叉树
-root = TreeNode(5)
-root.left = TreeNode(3)
-root.right = TreeNode(8)
-root.left.left = TreeNode(2)
-root.left.right = TreeNode(4)
-root.right.left = TreeNode(7)
-root.right.right = TreeNode(9)
-
-# 按从小到大的顺序输出二叉树中的元素
-print("二叉树中元素的排序输出：")
-inorder(root)
+if __name__ == "__main__":
+    ll = LinkList()
+    ll.add(1)
+    ll.add(2)
+    ll.add(3)
+    ll.display()

@@ -2,30 +2,29 @@
 
 // 8.层次遍历
 void LevelOrder(BiTree T) {
-    BiTree Queue[100];
+    BiTree Queue[100];  // 使用数组模拟队列
     int front = 0, rear = 0;
-    BiTree p;
+    Queue[rear++] = T;  // 根节点入队
     printf("层序遍历:");
     if (T) {
-        Queue[rear++] = T;
-        while (front != rear) {
-            p = Queue[front++];
-            printf("%c ", p->data);
-            if (p->lchild) {
-                Queue[rear++] = p->lchild;
-            }
-            if (p->rchild) {
-                Queue[rear++] = p->rchild;
-            }
+        while (front != rear) {  // 队列不为空
+            BiTNode* temp = Queue[front++];  // 出队
+            printf("%d ", temp->data);
+            if (temp->lchild)  // 左孩子入队
+                Queue[rear++] = temp->lchild;
+            if (temp->rchild)  // 右孩子入队
+                Queue[rear++] = temp->rchild;
         }
     }
 }
 
+
 int main() {
-    BiTree T;
-    Init_Tree(&T);
-    Create_Tree(&T);
-    PreOrder(T);
+    BiTree T = NULL;
+    int a[] = { 20,15,10,18,25 };
+    for (int i = 0; i < 5; i++) {
+        InsertNode(&T, a[i]);
+    }
     LevelOrder(T);
     return 0;
 }

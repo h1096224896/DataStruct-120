@@ -47,7 +47,7 @@ void showLinkList(LinkList L) {
 
 
 
-
+// 计算单链表中所有元素的和
 void getMaxAndSecond(LinkList L) {
     int sum = 0;
     LNode* p = L->next; // 假设带头节点
@@ -66,9 +66,8 @@ int main() {
     int n = 0;
     while (1) {
         scanf("%d", &n);
-        if (n != -1) {
+        if (n != -1)
             tailInsert(L, n);
-        }
         else
             break;
     }

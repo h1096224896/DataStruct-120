@@ -15,7 +15,6 @@ void PreOrderNonRecursion(BiTree T, int k) {
             }
             Stack[++top] = p;
             p = p->lchild;
-
         }
         else {
             p = Stack[top--];  // 栈顶元素出栈, 回溯到栈顶元素的父节点
@@ -29,6 +28,5 @@ int main(int argc, char const* argv[]) {
     BiTree T;
     Init_Tree(&T);
     Create_Tree(&T);
-    PreOrderNonRecursion(T, 3);
     return 0;
 }

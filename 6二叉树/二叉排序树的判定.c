@@ -1,8 +1,9 @@
 #include "二叉树.c"
 
 // 10.判断是否是二叉排序树
+// 二叉排序树：左子树的值小于根节点的值，右子树的值大于根节点的值
 int JudgeBST(BiTree T) {
-    if (T == NULL)  // 当判断到空节点时，返回1
+    if (T == NULL)  // 当判断到空节点时，返回1, 空树也是二叉排序树
         return 1;
     if (T->lchild != NULL && T->lchild->data > T->data)  
         return 0;  // 左子树的值大于根节点的值,不是二叉排序树
@@ -13,11 +14,13 @@ int JudgeBST(BiTree T) {
 
 int main() {
     BiTree T = NULL;
-    Init_Tree(&T);
-    Create_Tree(&T);
-    // 先序遍历
-    PreOrder(T);
-    printf("\n");
-    printf("%d\n", JudgeBST(T));
+    int a[] = { 20,15,10,18,25 };
+    for (int i = 0; i < 5; i++) {
+        InsertNode(&T, a[i]);
+    }
+    if (JudgeBST(T))
+        printf("是二叉排序树\n");
+    else
+        printf("不是二叉排序树\n");
     return 0;
 }

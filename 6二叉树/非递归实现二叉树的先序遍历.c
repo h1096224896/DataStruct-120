@@ -86,6 +86,8 @@ void PostOrderNonRecursion(BiTree T) {
     }
 }
 
+
+
 int main(int argc, char const* argv[]) {
     BiTree T;
     Init_Tree(&T);
@@ -96,6 +98,5 @@ int main(int argc, char const* argv[]) {
     InOrderNonRecursion(T); printf("\n");
     PostOrder(T); printf("\n");
     PostOrderNonRecursion(T); printf("\n");
-
     return 0;
 }

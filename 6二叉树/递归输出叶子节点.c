@@ -13,9 +13,7 @@ void fun(BiTree T) {
 
 int main() {
     BiTree T = NULL;
-    int a[] = { 20,15,10,18,25 };
-    for (int i = 0; i < 5; i++)
-        InsertNode(&T, a[i]);
+    Create_Tree(&T);
     fun(T);
     return 0;
 }

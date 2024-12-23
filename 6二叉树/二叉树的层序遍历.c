@@ -19,6 +19,7 @@ void LevelOrder(BiTree T) {
 }
 
 
+
 int main() {
     BiTree T = NULL;
     int a[] = { 20,15,10,18,25 };

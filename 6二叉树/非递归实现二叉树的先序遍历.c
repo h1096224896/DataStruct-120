@@ -26,6 +26,22 @@ void PreOrderNonRecursion(BiTree T) {
     }
 }
 
+
+
+void fun2(BiTree T, int k) {
+    BiTNode* stack[100];
+    int top = -1;
+    BiTNode* p = T;
+    stack[top++] = p;
+    int cnt = 0;
+    while (p != NULL || top != -1) {
+        
+    }
+}
+
+
+
+
 // 非递归实现二叉树的中序遍历
 // 思路：
 //     1.定义一个栈Stack，一个指针p指向根结点

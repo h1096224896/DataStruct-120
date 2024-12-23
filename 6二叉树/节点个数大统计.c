@@ -3,22 +3,22 @@
 
 // 已知一个二叉树T采用二叉链表方式存储，设计一个算法，统计出二叉树T中结点的个数、叶子结点个数、 单枝结点的个数和双枝结点的个数，并将计算的结果存放在数组中。
 // 统计二叉树的结点类型数量
-void countNodes(BiTree root, int* counts) {
-    if (root == NULL)
+void countNodes(BiTree T, int* counts) {
+    if (T == NULL)
         return;
-    counts[0]++;  // 只要是根结点就加一
-    if (root->lchild == NULL && root->rchild == NULL) {
+    counts[0]++;  // 只要是结点就加一
+    if (T->lchild == NULL && T->rchild == NULL) {
         // 叶子结点
         counts[1]++;
-    } else if (root->lchild == NULL || root->rchild == NULL) {
+    } else if (T->lchild == NULL || T->rchild == NULL) {
         // 单枝结点
         counts[2]++;
     } else
         // 双枝结点
         counts[3]++;
     // 递归统计左右子树
-    countNodes(root->lchild, counts);
-    countNodes(root->rchild, counts);
+    countNodes(T->lchild, counts);
+    countNodes(T->rchild, counts);
 }
 
 

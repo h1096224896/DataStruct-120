@@ -12,6 +12,17 @@ void delete(BiTree T, char x) {
     delete(T->rchild, x);  // 递归删除右子树
 }
 
+void fun(BiTree T, int x) {
+    if (T == NULL)
+        return;
+    if (T->lchild != NULL && T->lchild->data == x)
+        T->lchild = NULL;
+    if (T->rchild != NULL && T->rchild->data == x)
+        T->rchild = NULL;
+    fun(T->lchild);
+    fun(T->rchild);
+}
+
 int main(int argc, char const* argv[]) {
     BiTree T;
     Init_Tree(&T);

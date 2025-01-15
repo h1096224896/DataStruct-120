@@ -1,43 +1,58 @@
-<b>矩阵计算器</b><br>
-<form name="form1" action="https://zh.numberempire.com/matrixcalculator.php" method="post">
-    输入矩阵 A:<br>
-    <textarea type="text" name="matrix1" cols="60" rows="20"></textarea>
-    <table>
-        <tbody>
-            <tr>
-                <td>
-                    <input name="determinant" checked="checked" type="checkbox"> 矩阵的行列式
-                </td>
-                <td>
-                    <input name="transpose" checked="checked" type="checkbox"> 转置矩阵
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    <input name="trace" checked="checked" type="checkbox"> 矩阵迹
-                </td>
-                <td>
-                    <input name="rank" checked="checked" type="checkbox"> 矩阵的秩
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    <input name="inverse" type="checkbox"> 逆矩阵
-                </td>
-                <td>
-                    <input name="eigenvalues" type="checkbox"> 特征值
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    <input name="triangularize" type="checkbox"> 上三角矩阵
-                </td>
-                <td>
-                    <input name="square" type="checkbox"> A<sup>2</sup>
-                </td>
-            </tr>
-        </tbody>
-    </table>
-    <input value="计算" type="submit">
-    <input name="return" value="1" type="hidden">
-</form>
+<!DOCTYPE html>
+<html lang="en" xmlns:v-bind="http://www.w3.org/1999/xhtml" xmlns:v-on="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>帅哥</title>
+</head>
+<body>
+
+    <div id="app">
+    {{ message }}
+        <div>{{ (num) }}</div>
+        <div>{{ (bool) }}</div>
+        <div>{{ (bool) ? 'a' : 'b'}}</div>
+        <div>{{ arr.find(v => v.name === '张三')?.age }}</div>
+        <div v-html="htmlStr"></div>
+        <div>
+            <input type="text" v-model="value">
+        <div>{{ value }}</div>
+        </div>
+        <div>
+            <div v-if="color === '红色'" >红色</div>
+            <div v-if="color === '蓝色'" >白色</div>
+            <div v-else >黄色</div>
+        </div>
+        <div>
+            <a :href="`https://www.taobao.com`">搜索一下</a >
+        </div>
+        <div style="width: 100px; height: 100px; background-color: red" v-on:click="clickDiv" id="div">
+
+        </div>
+    </div>
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+    <script>
+        var app = new Vue({
+            el: '#app',
+            data: {
+                message: 'Hello Vue!',
+                num:1,
+                bool:false,
+                arr:[{name:'张三',age:20}],
+                htmlStr:`<strong style="color: red">鹏贤哥哥真棒</strong>`,
+                value:``,
+                color:`黑色`,
+                url: `https://www.taobao.com`
+            },
+            methods:{
+                clickDiv(){
+                    console.log('我点击了div')
+                    document.getElementById('div').style.backgroundColor = 'blue'
+                }
+            }
+        })
+    </script>
+</body>
+</html>

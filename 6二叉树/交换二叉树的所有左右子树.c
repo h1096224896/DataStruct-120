@@ -7,12 +7,13 @@ void swapSubTree(BiTree T) {
         BiTNode* temp = T->lchild;
         T->lchild = T->rchild;
         T->rchild = temp;
-        swapSubTree(T->lchild);
-        swapSubTree(T->rchild);
+        swapSubTree(T->lchild);  // 递归交换左子树
+        swapSubTree(T->rchild);  // 递归交换右子树
     }
 }
 
-int main(int argc, char const *argv[])
+
+int main(int argc, char const* argv[])
 {
     BiTree T;
     Init_Tree(&T);

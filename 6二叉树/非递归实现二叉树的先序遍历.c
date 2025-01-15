@@ -14,7 +14,7 @@ void PreOrderNonRecursion(BiTree T) {
     BiTNode* p = T;
     printf("先序遍历(非递归):");
     while (p != NULL || top != -1) {   // p不为空或者栈不为空
-        if (p != NULL) {
+        if (p != NULL) {  // 节点不为空
             printf("%c ", p->data);
             Stack[++top] = p;  // 入栈
             p = p->lchild;  // 遍历左子树
@@ -25,6 +25,22 @@ void PreOrderNonRecursion(BiTree T) {
         }
     }
 }
+
+
+
+void fun2(BiTree T, int k) {
+    BiTNode* stack[100];
+    int top = -1;
+    BiTNode* p = T;
+    stack[top++] = p;
+    int cnt = 0;
+    while (p != NULL || top != -1) {
+        
+    }
+}
+
+
+
 
 // 非递归实现二叉树的中序遍历
 // 思路：
@@ -38,8 +54,8 @@ void InOrderNonRecursion(BiTree T) {
     BiTree p = T;
     printf("中序遍历(非递归):");
     while (p || top != -1) {
-        if (p != NULL) {  
-            Stack[++top] = p;  
+        if (p != NULL) {
+            Stack[++top] = p;
             p = p->lchild;
         }
         else {
@@ -86,6 +102,8 @@ void PostOrderNonRecursion(BiTree T) {
     }
 }
 
+
+
 int main(int argc, char const* argv[]) {
     BiTree T;
     Init_Tree(&T);
@@ -96,6 +114,5 @@ int main(int argc, char const* argv[]) {
     InOrderNonRecursion(T); printf("\n");
     PostOrder(T); printf("\n");
     PostOrderNonRecursion(T); printf("\n");
-
     return 0;
 }

@@ -7,13 +7,12 @@ void selectionSort(LinkList L) {
         LNode* maxNode = p;  // 记录最大值结点
         LNode* q = p->next;  // 从p的下一个结点开始遍历
         while (q != NULL) {  // 遍历链表
-            if (q->data > maxNode->data) {      // 如果q结点的值大于maxNode结点的值
+            if (q->data > maxNode->data)     // 如果q结点的值大于maxNode结点的值
                 maxNode = q;    // 记录q结点
-            }
             q = q->next;    // q指向下一个结点
         }
         if (maxNode != p) { // 如果maxNode不是p结点
-            int temp = p->data;  
+            int temp = p->data;
             p->data = maxNode->data;
             maxNode->data = temp;
         }

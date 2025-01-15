@@ -21,10 +21,14 @@ void ShellSort(int A[], int n) {
     }
 }
 
+<<<<<<< HEAD
 
 
 int main()
 {
+=======
+int main() {
+>>>>>>> 4e6eab10d925b32bbce484fb499cffef51a43316
     int arr[] = { 54, 43,70,102,81,18,32,55,60,9 };
     int n = sizeof(arr) / sizeof(arr[0]);
     ShellSort(arr, n);

@@ -10,10 +10,10 @@ typedef struct {
 } SqList;
 
 
+// 利用 2 轮选择排序，找到最大值和次大值
 void getMaxAndSecond(SqList* L) {
-
-    for (size_t i = 0; i < 2; i++) {
-        for (size_t j = i + 1; j < L->length; j++) {
+    for (size_t i = 0; i < 2; i++) {  // 选择排序
+        for (size_t j = i + 1; j < L->length; j++) {  // 选择排序
             if (L->data[i] < L->data[j]) {
                 int temp = L->data[i];
                 L->data[i] = L->data[j];

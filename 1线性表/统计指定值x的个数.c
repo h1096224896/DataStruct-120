@@ -40,9 +40,8 @@ int count(LinkList L, ElemType x) {
     LNode* p = L->next;
     int cnt = 0;
     while (p != NULL) {
-        if (p->data == x) {
+        if (p->data == x)
             cnt++;
-        }
         p = p->next;
     }
     return cnt;

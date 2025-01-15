@@ -38,9 +38,8 @@ void showLinkList(LinkList L) {
 // 入栈相当于尾插
 void Push(LinkList S, int x) {
     LNode* p = S;
-    while (p->next != NULL) {
+    while (p->next != NULL)
         p = p->next;
-    }
     LNode* newNode = (LNode*)malloc(sizeof(LNode));
     newNode->data = x;
     newNode->next = p->next;

@@ -35,11 +35,12 @@ void showLinkList(LinkList L) {
     printf("\n");
 }
 
+// 在一个带头结点的递增单链表中删除所有大于value的节点，并返回删除的节点个数
 int fun(LinkList L, int value) {
-    LNode* p = L;
-    while (p->next != NULL && p->next->data < value)  // 找到第一个大于value的节点
-        p = p->next;
     int cnt = 0;  // 计数器
+    LNode* p = L;
+    while (p->next != NULL && p->next->data <= value)  // 找到第一个大于或者等于value的节点, 该节点的前驱节点为p
+        p = p->next;
     LNode* pre = p;
     p = p->next;
     while (p != NULL) {
@@ -52,21 +53,39 @@ int fun(LinkList L, int value) {
     return cnt;
 }
 
+// 在一个无序带头结点的单链表中删除所有大于value的节点，并返回删除的节点个数
+int fun2(LinkList L, int value) {
+    int cnt = 0;  // 计数器
+    LNode* p = L;
+    while (p->next != NULL) {    // 找到第一个大于或者等于value的节点, 该节点的前驱节点为p
+        if (p->next->data > value) {
+            LNode* temp = p->next;
+            p->next = p->next->next;
+            free(temp);
+            cnt++;
+        }
+        else
+            p = p->next;
+    }
+    return cnt;
+}
+
+
 int main() {
     LinkList L;
     initList(&L);
-    tailInsert(L, 1);
-    tailInsert(L, 3);
-    tailInsert(L, 5);
     tailInsert(L, 7);
-    tailInsert(L, 9);
+    tailInsert(L, 3);
+    tailInsert(L, 19);
+    tailInsert(L, 7);
+    tailInsert(L, 20);
     tailInsert(L, 11);
     tailInsert(L, 13);
     showLinkList(L);
     //  your function here
-    int cnt = fun(L, 12);
-    printf("%d", cnt);
-    // showLinkList(L);
+    int cnt = fun2(L, 4);
+    printf("%d\n", cnt);
+    showLinkList(L);
     return 0;
 }
 

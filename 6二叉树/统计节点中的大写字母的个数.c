@@ -26,11 +26,21 @@ int fun2(BiTree T) {
     return flag + fun2(T->lchild) + fun2(T->rchild); // 当前节点的值 + 左子树结果 + 右子树结果
 }
 
+
+int fun3(BiTree T) {
+    if (T == NULL)
+        return 0;
+    if (T->data >= 'A' && T->data <= 'Z')  // 如果是大写字母
+        return 1 + fun3(T->lchild) + fun3(T->rchild);
+    else
+        return fun3(T->lchild) + fun3(T->rchild);
+}
+
 int main(int argc, char const* argv[]) {
     BiTree T;
     Init_Tree(&T);
     Create_Tree(&T);
     PreOrder(T); printf("\n");
-    printf("%d", fun1(T)), printf("\n");
+    printf("%d", fun3(T)), printf("\n");
     return 0;
 }

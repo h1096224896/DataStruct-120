@@ -5,6 +5,7 @@ void InOrderTraverse(BiTree T) {
         return;
     InOrderTraverse(T->lchild); // 左
     if (T->lchild == NULL && T->rchild != NULL || T->rchild == NULL && T->lchild != NULL)
+    // if ((T->lchild == NULL) != (T->rchild == NULL))  // 优化写法
         printf("%c ", T->data);  // 根
     InOrderTraverse(T->rchild);  // 右
 }

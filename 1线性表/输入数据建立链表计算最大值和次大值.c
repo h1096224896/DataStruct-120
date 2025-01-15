@@ -47,17 +47,17 @@ void showLinkList(LinkList L) {
 
 
 
-
+// 输出最大值和次大值
 void getMaxAndSecond(LinkList L) {
     int max = L->next->data;  //  
     int second = L->next->data; // 将最大值和次大值先设置为第一个元素
     LNode* p = L->next;
     while (p != NULL) {  // 选择比较找最大值
         if (p->data > max)
-            max = p->data;
+            max = p->data;  // 更新最大值
         p = p->next;
     }
-    LNode* q = L->next;
+    LNode* q = L->next;   // 重新遍历
     while (q != NULL) {   // 选择比较找次大值
         if (q->data > second && q->data < max)
             second = q->data;
@@ -65,6 +65,7 @@ void getMaxAndSecond(LinkList L) {
     }
     printf("max:%d, second:%d", max, second);
 }
+
 
 int main() {
     LinkList L;

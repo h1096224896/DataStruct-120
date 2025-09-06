@@ -7,6 +7,21 @@ typedef struct BiTNode {
     struct BiTNode* lchild, * rchild;
 }BiTNode, * BiTree;
 
+void Create_Tree(BiTree* T) {
+    int x;
+    scanf("%d", &x);
+    if (x == 0) {
+        *T = NULL;
+    }
+    else {
+        *T = (BiTree)malloc(sizeof(BiTNode));
+        (*T)->data = x;
+        Create_Tree(&(*T)->lchild);
+        Create_Tree(&(*T)->rchild);
+    }
+}
+
+
 // 二叉排序树的判定
 int JudgeBST(BiTree T) {
     if (T == NULL) return 1;  // 空树是二叉排序树
@@ -16,10 +31,13 @@ int JudgeBST(BiTree T) {
     return 1;
 }
 
-int main()
-{
+int main() {
     BiTree T = NULL;
     Create_Tree(&T);
-    
+    if (JudgeBST(T)) {
+        printf("是二叉排序树\n");
+    } else {
+        printf("不是二叉排序树\n");
+    }
     return 0;
 }

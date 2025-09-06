@@ -1,36 +1,47 @@
 #include <stdio.h>
-#include <string.h>
 #include <stdlib.h>
+#include <string.h>
 
-// 编写函数:希尔排序,并打印每趟排序结果
-void ShellSort(int A[], int n) {
-    int i, j, gap;
-    int temp;
-    for (gap = n / 2; gap > 0; gap /= 2) {
-        for (i = gap; i < n; i++) {
-            temp = A[i];
-            for (j = i - gap; j >= 0 && A[j] > temp; j -= gap) {
-                A[j + gap] = A[j];
-            }
-            A[j + gap] = temp;
-        }
-        for (int k = 0; k < n; k++) {
-            printf("%d ", A[k]);
-        }
-        printf("\n");
+/*
+请编写函数fun，函数的功能是：判断字符串是否为回文？若是，函数返回1，主函数中输出：YES；否则返回0，主函数中输出NO
+回文是指顺读和倒读都一样的字符串。
+例如，字符串LEVEL是回文，而字符串123312就不是回文。
+*/
+
+
+
+
+
+
+// 函数的功能是：判断字符串是否为回文？
+int fun(char* str) {
+    int i, n = 0, fg = 1;
+    char* p = str;
+    while (*p) {
+        n++;
+        p++;
     }
+    for (i = 0; i < n / 2; i++) {
+        if (*(p - n + i) != *(p - i - 1)) {
+            fg = 0;
+            break;
+        }
+    }
+    return fg;
 }
 
-<<<<<<< HEAD
-
-
-int main()
-{
-=======
 int main() {
->>>>>>> 4e6eab10d925b32bbce484fb499cffef51a43316
-    int arr[] = { 54, 43,70,102,81,18,32,55,60,9 };
-    int n = sizeof(arr) / sizeof(arr[0]);
-    ShellSort(arr, n);
+    char s[80];
+    // 请输入一个字符串
+    gets(s);
+    printf("\n");
+    puts(s);
+
+    if (fun(s)) {
+        printf("YES\n");
+    }
+    else {
+        printf("NO\n");
+    }
     return 0;
 }

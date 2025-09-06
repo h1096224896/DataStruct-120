@@ -79,6 +79,7 @@ int main() {
 
     printf("operations[0](6, 7) = %d\n", operations[0](6, 7));  // add: 13
     printf("operations[1](6, 7) = %d\n", operations[1](6, 7));  // multiply: 42
-
+    printf("%d\n", );
+    
     return 0;
 }

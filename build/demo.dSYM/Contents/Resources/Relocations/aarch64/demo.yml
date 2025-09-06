@@ -1,5 +1,5 @@
 ---
 triple:          'arm64-apple-darwin'
-binary-path:     '/Users/jair/Desktop/C/DataStruct-120/build/demo'
+binary-path:     '/Users/jair/Desktop/c/DataStruct-120/build/demo'
 relocations:     []
 ...
